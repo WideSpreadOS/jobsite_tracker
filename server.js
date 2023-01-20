@@ -4,7 +4,7 @@ const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser')
 
 
-
+let PORT = process.env.PORT || 5000
 
 
 const app = express()
@@ -44,6 +44,6 @@ app.get('/resources', (req, res) => {
     res.render('resources', {pageTitle: 'Resources Home'})
 })
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('Server started on http://localhost:3000')
 })
