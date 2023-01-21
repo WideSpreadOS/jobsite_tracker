@@ -442,7 +442,7 @@
                 "property.country": jobCountry.value
             }
             console.log('job: ', job)
-            postData('http://localhost:5000/jobs/create-new', job)
+            postData('https://eddie-o.herokuapp.com/jobs/create-new', job)
             .then((data) => {
                 console.log(data); // JSON data parsed by `data.json()` call
             });
