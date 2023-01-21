@@ -16,17 +16,18 @@
             <h4>Jobsite Information</h4>
         </div>
 
-        
+        <div id="output"></div>
+        <div id="showAllBtn">SHOW ALL JOBS</div>
         <div class="add-form">
 
-            <form id="addNewJob" action="/jobs/create-new" method="post">
+            <form id="addNewJob">
                 <div class="data-item">
                     <input type="text" name="property.site_name" id="siteName" placeholder="Site Name">
                 </div>
 
                 <div class="data-item">
                     <select name="property.zoning" id="propertyType">
-                    <option selected disabled hidden>Property Type (Required)</option>
+                    <option id="defaultJobZone" selected disabled hidden>Property Type (Required)</option>
                     <div class="options-list">
                         <option value="residential">Residential</option>
                         <option value="commercial">Commercial</option>
@@ -36,21 +37,24 @@
                 </div>
 
                 <div class="data-item">
-                    <input type="text" name="property.address.line_1" id="" placeholder="Address Line 1">
+                    <input type="text" name="property.address.line_1" id="jobAddr1" placeholder="Address Line 1">
                 </div>
                 <div class="data-item">
-                    <input type="text" name="property.address.line_2" id="" placeholder="Address Line 2">
+                    <input type="text" name="property.address.line_2" id="jobAddr2" placeholder="Address Line 2">
                 </div>
                 <div class="data-item">
-                    <input type="text" name="property.address.city" id="" placeholder="Address City">
+                    <input type="text" name="property.address.city" id="jobCity" placeholder="City">
                 </div>
                 <div class="data-item">
-                    <input type="text" name="property.address.state" id="" placeholder="Address State">
+                    <input type="text" name="property.address.state" id="jobState" placeholder="State">
                 </div>
                 <div class="data-item">
-                    <input type="text" name="property.address.zip" id="" placeholder="Address Zip">
+                    <input type="text" name="property.address.zip" id="jobZip" placeholder="Zip">
                 </div>
-                <div class="data-item"><button type="submit">Add New Job</button></div>
+                <div class="data-item">
+                    <input type="text" name="property.address.country" id="jobCountry" placeholder="Country">
+                </div>
+                <div class="data-item"><button>Add New Job</button></div>
 
             </form>
         </div>
@@ -388,3 +392,86 @@
 </footer>
 
 </div>
+
+
+<script>
+    const newJobForm = document.querySelector('#addNewJob')
+
+    // Example POST method implementation:
+    async function postData(url = '', data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+
+    const 
+        siteName = document.getElementById('siteName'),
+        propertyType = document.getElementById('propertyType'),
+        jobAddr1 = document.getElementById('jobAddr1'),
+        jobAddr2 = document.getElementById('jobAddr2'),
+        jobCity = document.getElementById('jobCity'),
+        jobState = document.getElementById('jobState'),
+        jobZip = document.getElementById('jobZip'),
+        jobCountry = document.getElementById('jobCountry')
+        
+        newJobForm.addEventListener('submit', e => {
+            e.preventDefault()
+
+
+            const job = {
+                "property.site_name": siteName.value,
+                "property.zoning": propertyType.value,
+                "property.address_line_1": jobAddr1.value,
+                "property.address_line_2": jobAddr2.value,
+                "property.city": jobCity.value,
+                "property.state": jobState.value,
+                "property.zip": jobZip.value,
+                "property.country": jobCountry.value
+            }
+            console.log('job: ', job)
+            postData('http://localhost:5000/jobs/create-new', job)
+            .then((data) => {
+                console.log(data); // JSON data parsed by `data.json()` call
+            });
+            siteName.value = ''
+            jobAddr1.value = ''
+            jobAddr2.value = ''
+            jobCity.value = ''
+            jobState.value = ''
+            jobZip.value = ''
+            jobCountry.value = ''
+            let defaultJobZone = document.querySelector('#defaultJobZone')
+            defaultJobZone.selected = true
+
+        })
+
+    // const data = { username: 'example' };
+
+    // fetch('https://example.com/profile', {
+    //     method: 'POST', // or 'PUT'
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(data),
+    // })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         console.log('Success:', data);
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error:', error);
+    //     });
+</script>

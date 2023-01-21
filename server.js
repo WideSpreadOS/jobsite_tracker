@@ -56,7 +56,6 @@ app.post('/jobs/create-new', async (req, res) => {
     const jobData = req.body
     const newJob = new Job(jobData)
     newJob.save()
-    res.redirect(`/jobs`)
 })
 app.get('/clients', (req, res) => {
     res.render('clients', {pageTitle: 'Clients Home'})
