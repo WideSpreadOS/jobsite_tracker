@@ -15,39 +15,44 @@
         <div class="data-header">
             <h4>Jobsite Information</h4>
         </div>
-        <div class="data-item">
-            <select name="property_type" id="propertyType">
-                <option selected disabled hidden>Property Type</option>
-                <div class="options-list">
-                    <option value="residential">Residential</option>
-                    <option value="commercial">Commercial</option>
-                    <option value="other">Other</option>
-                </div>
-            </select>
-        </div>
 
-        <div class="data-item">
-            <input type="text" name="jobsite.address.line_1" id="jobAddressLine1" placeholder="Street Line 1">
-        </div>
-        <div class="data-item">
-            <input type="text" name="jobsite.address.line_2" id="jobAddressLine2" placeholder="Street Line 2">
-        </div>
-        <div class="data-item">
-            <input type="text" name="jobsite.address.city" id="jobCity" placeholder="City">
-        </div>
-        <div class="data-row">
-            <div class="data-item">
-                <input type="text" name="jobsite.address.state" id="jobState" placeholder="State (2 Letters)">
-            </div>
-            <div class="data-item">
-                <input type="text" name="jobsite.address.zip" id="jobZip" placeholder="Zip">
-            </div>
-        </div>
-        <div class="data-item">
-            <input type="tel" name="jobsite.contact.phone" id="jobPhone" placeholder="Phone">
-        </div>
-        <div class="data-item">
-            <input type="email" name="jobsite.contact.email" id="jobEmail" placeholder="Email">
+        
+        <div class="add-form">
+
+            <form id="addNewJob" action="/jobs/create-new" method="post">
+                <div class="data-item">
+                    <input type="text" name="property.site_name" id="siteName" placeholder="Site Name">
+                </div>
+
+                <div class="data-item">
+                    <select name="property.zoning" id="propertyType">
+                    <option selected disabled hidden>Property Type (Required)</option>
+                    <div class="options-list">
+                        <option value="residential">Residential</option>
+                        <option value="commercial">Commercial</option>
+                        <option value="other">Other</option>
+                    </div>
+                    </select>
+                </div>
+
+                <div class="data-item">
+                    <input type="text" name="property.address.line_1" id="" placeholder="Address Line 1">
+                </div>
+                <div class="data-item">
+                    <input type="text" name="property.address.line_2" id="" placeholder="Address Line 2">
+                </div>
+                <div class="data-item">
+                    <input type="text" name="property.address.city" id="" placeholder="Address City">
+                </div>
+                <div class="data-item">
+                    <input type="text" name="property.address.state" id="" placeholder="Address State">
+                </div>
+                <div class="data-item">
+                    <input type="text" name="property.address.zip" id="" placeholder="Address Zip">
+                </div>
+                <div class="data-item"><button type="submit">Add New Job</button></div>
+
+            </form>
         </div>
 
         <div class="data-row">

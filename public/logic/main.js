@@ -1,5 +1,3 @@
-console.log('JS Loaded...')
-
 const
     itemOptionsBtns = document.querySelectorAll('.item-options'),
     itemRefOptionsBtns = document.querySelectorAll('.item-ref-options'),

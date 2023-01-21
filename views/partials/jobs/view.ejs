@@ -1,0 +1,15 @@
+<div class="page-container hidden" data-page-name="view">
+
+    <header>
+        <h1>Edit Job</h1>
+    </header>
+
+    <div id="currentJobs">
+        <% jobs.forEach(function(job) { %>
+            <div class="item-card">
+                <p style="color: lime; font-size: 2rem;"><%= job %></p>
+            </div>
+        <% }) %>
+    </div>
+
+</div>

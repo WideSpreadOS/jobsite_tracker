@@ -12,6 +12,8 @@
         align-items: center;
         justify-content: center;
         z-index: 99999;
+        border-bottom: solid 3px orangered;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     }
 
     #mainSearch {
@@ -28,13 +30,18 @@
         align-items: center;
         overflow-x: auto;
         justify-content: flex-start;
+        height: 80px;
     }
-    .nav-bar a {
+    .main-menu-item {
         color: orangered;
         font-size: 2rem;
         font-weight: bold;
         text-decoration: none;
         padding: 10px;
+    }
+
+    .current-zone {
+        color: #fff;
     }
 </style>
 
@@ -49,12 +56,16 @@
         </form>
     </div>
     <div class="nav-bar">
-        <a href="/">Home</a>
-        <a href="/jobs">Jobs</a>
-        <a href="/clients">Clients</a>
-        <a href="/suppliers">Suppliers</a>
-        <a href="/maintenance">Maintenance</a>
-        <a href="/tools">Tools</a>
-        <a href="/resources">Resources</a>
+        <div class="main-menu-item" data-landing-page="home" href="/">Home</div>
+        <div class="main-menu-item" data-landing-page="jobs">Jobs</div>
+        <div class="main-menu-item" data-landing-page="clients">Clients</div>
+        <div class="main-menu-item" data-landing-page="suppliers">Suppliers</div>
+        <div class="main-menu-item" data-landing-page="maintenance">Maintenance</div>
+        <div class="main-menu-item" data-landing-page="tools">Tools</div>
+        <div class="main-menu-item" data-landing-page="resources">Resources</div>
     </div>
 </div>
+
+<script>
+
+</script>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INDEX HTML</title>
+    <title>O'Connel Inc.</title>
 
     <style>
         * {
@@ -13,10 +13,51 @@
             box-sizing: border-box;
         }
         body {
-            background-color: lime;
-            padding-top: 100px;
             background-color: #333;
             color: #fff;
+            max-width: 100vw;
+        }
+        #landingPageWelcome {
+            position: absolute;
+            top: 150px;
+            left: 0;
+            width: 50vw;
+            background-color: #333;
+            z-index: -99999;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        #landingPageWelcome img {
+            max-width: 90vw;
+            margin: 0 auto;
+            max-height: 90vh;
+        }
+        #landingPageWelcome h1 {
+            font-size: 2rem;
+            text-align: center;
+            width: 100%;
+            margin-top: 30px;
+            color: orangered;
+        }
+        #landingPageWelcome h6 {
+            font-size: 1rem;
+            text-align: center;
+            width: 75%;
+            margin-inline: auto;
+            padding: 8px;
+            border-bottom: solid 2px orangered;
+        }
+        .zone {
+            background-color: #333;
+            padding-top: 100px;
+            min-height: calc(100vh - 100px);
+        }
+        .page-container {
+            position: relative;
+            z-index: 100;
         }
         .page-landing-header {
             background-color: orangered;
@@ -27,13 +68,508 @@
             text-align: center;
             font-size: 3rem;
         }
+    .hidden {
+        display: none;
+    }
+
+    .vert-stack {
+        flex-direction: column;
+    }
+
+    header {
+        text-align: center;
+        padding: 20px;
+        width: 90vw;
+        border-bottom: solid 5px orangered;
+        color: orangered;
+        margin-inline: auto;
+        border-radius: 1rem;
+    }
+
+    main {
+        margin-top: 15px;
+        font-size: 1.4rem;
+    }
+
+    .add-form {
+        width: 100%;
+    }
+
+    form {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .add-form button {
+        width: 90%;
+        outline: none;
+        border: none;
+        margin-inline: auto;
+        color: #fff;
+        background-color: yellowgreen;
+        font-size: 1.25rem;
+        font-weight: bold;
+        padding: 0.5rem;
+        border-radius: 10rem;
+        margin-top: 15px;
+        border: solid 3px #fff;
+    }
+
+    .data-input-label {
+        padding: 5px;
+        font-size: 1rem;
+    }
+
+    footer ul {
+        list-style: none;
+        font-size: 1.5rem;
+
+        color: orangered;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 1rem;
+    }
+
+    footer a {
+        color: orangered;
+        text-decoration: none;
+    }
+
+    .company-data {
+        padding-top: 20px;
+        margin-top: 30px;
+        padding-bottom: 20px;
+        background-color: #000;
+        border-radius: 2px;
+        border-top: solid 1px orangered;
+        border-bottom: solid 1px orangered;
+        box-shadow: 0 20px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .company-data>.data-item>p:first-of-type {
+        padding: 8px;
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+
+    .company-data .data-item {
+        text-align: center;
+        width: 100%;
+    }
+
+    .job-data,
+    .client-data,
+    .company-data,
+    .expense-data,
+    .notes-container {
+        width: 100%;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .data-header {
+        width: 90%;
+        text-align: center;
+    }
+
+    .data-header h4 {
+        padding: 8px;
+        font-size: 1.5rem;
+        color: orangered;
+        border-top: solid 3px orangered;
+        width: 100%;
+        margin-top: 25px;
+        border-radius: 1rem;
+    }
+
+    .data-header h6 {
+        padding: 8px;
+        font-size: 1.25rem;
+        color: #fff;
+        border-top: solid 1px #fff;
+        width: 100%;
+        margin-top: 15px;
+        border-radius: 1rem;
+    }
+
+    .data-row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 95%;
+    }
+
+    .data-row>div {
+        max-width: 50%;
+    }
+
+    .data-row>div>input {
+        max-width: 100%;
+    }
+
+    .data-item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+    }
+
+    .data-item input {
+        width: 90%;
+        padding: 0.5rem;
+        border-radius: 1rem;
+        outline: none;
+        border: none;
+    }
+
+    .data-item select {
+        width: 90%;
+        min-width: 300px;
+        margin-top: 15px;
+        margin-inline: auto;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        background-color: #fff;
+        color: orangered;
+    }
+
+    .permits-list {
+        width: 90%;
+    }
+
+    .permit-code {
+        width: 100px;
+    }
+
+    .permit-name {
+        width: calc(100% - 100px);
+    }
+
+    .permit-status {
+        display: none;
+    }
+
+    .permit-item {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: center;
+        border-bottom: solid 1px #fff;
+    }
+
+    .permit-item:last-of-type {
+        border-bottom: none;
+    }
+
+
+
+    .expense-item {
+        border: solid 3px orangered;
+        position: relative;
+        width: 90%;
+        margin-inline: auto;
+        margin-top: 30px;
+        border-radius: 1rem;
+        padding: 15px;
+    }
+
+    .item-number {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        background-color: orangered;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #333;
+    }
+
+    .item-options {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 60px;
+        height: 30px;
+        border-radius: 1rem;
+        background-color: #fff;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .item-options-open {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .item-options-open img {
+        max-width: 100%;
+        max-height: 100%;
+        filter: drop-shadow(0 0 1px #000);
+    }
+
+    .item-options-list {
+        position: absolute;
+        top: 0px;
+        right: 45px;
+        background-color: lime;
+        border-radius: 1rem;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        background-color: #fff;
+        height: 30px;
+
+    }
+
+    .options-list {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: 0.25rem;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .options-list span {
+        font-size: 0.8rem;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3px;
+    }
+
+    .options-list span:nth-child(3) {
+        color: orangered;
+    }
+
+    .item-name {
+        border-bottom: solid 2px #fff;
+        width: 95%;
+        margin-inline: auto;
+        padding-bottom: 1rem;
+    }
+
+    .item-description {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .item-details {
+        border: solid 1px orangered;
+        border-radius: 1rem;
+        padding: 1rem;
+    }
+
+    .item-details table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    .item-details table th {
+        border-bottom: solid 2px #fff;
+        padding: 3px;
+    }
+
+    .item-details table td {
+        border-right: solid 2px #fff;
+        padding: 3px;
+    }
+
+    .item-details table td:last-of-type {
+        border-right: none;
+    }
+
+
+    .item-note {
+        background-color: orangered;
+        font-size: 1.3rem;
+        width: 90%;
+        border-radius: 1rem;
+        position: relative;
+        padding: 20px;
+        padding-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .item-ref {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        border: solid 1px orangered;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #333;
+        color: orangered;
+    }
+
+    .item-ref-options {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        border-radius: 1rem;
+        width: 60px;
+        height: 30px;
+        background-color: #fff;
+        color: #333;
+    }
+
+    .item-ref-options-open {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .item-ref-options-open img {
+        max-width: 100%;
+        max-height: 100%;
+        filter: drop-shadow(0 0 1px #000);
+    }
+
+    .note-body {
+        color: #333;
+    }
+
+    .dev-note {
+        display: none;
+    }
+
+    .page-routes {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 50px;
+        padding: 20px;
+    }
+
+    .page-routes button {
+        background-color: orangered;
+        padding: 15px;
+        border: none;
+        outline: none;
+        border-radius: 1rem;
+        font-size: 2rem;
+        color: #fff
+    }
     </style>
 </head>
 <body>
-    
+    <div id="landingPageWelcome">
+        <img src="/images/main-logo_1c.png" alt="">
+        <h1>O'Connell Construction</h1>
+        <h6>We pour the best concrete in the world!</h6>
+    </div>
     <%- include('../partials/menu/main') %>
 
+    <%- include('../partials/home/home-index') %>
     <%- include('../partials/jobs/index') %>
+    <% if (zoneNameData === 'home') { %>
+    <% } %>
+    <% if (zoneNameData === 'jobs') { %>
+    <% } %>
+
+<script>
+    const
+        jobPages = document.getElementById('jobPages')
+        allPageRoutes = document.querySelectorAll('.page-routes button')
+        zones = document.querySelectorAll('.zone'),
+        allZoneLinks = document.querySelectorAll('.main-menu-item')
+        
+        console.log(allPageRoutes)
+        console.log(allZoneLinks)
+
+
+
+    zones.forEach(zone => {
+        const zoneName = zone.getAttribute('data-zone-name')
+        console.log(zoneName)
+        console.log(window.location.pathname)
+        console.log(zone)
+        const allZonePages = zone.querySelectorAll('.page-container')
+        console.log(allZonePages)
+        allZonePages.forEach(zonePage => {
+            console.log('zonePage: ', zonePage)
+            const zonePageName = zonePage.getAttribute('data-page-name')
+            console.log('allZoneLinks: ', allZoneLinks)
+            allZoneLinks.forEach((zoneLink, index) => {
+                zoneLink.classList.remove('current-zone')
+                const zoneLinkData = zoneLink.getAttribute('data-landing-page')
+                console.log('zoneLinkData: ', zoneLinkData)
+                zoneLink.addEventListener('click', e => {
+                    const targetZone = e.target.getAttribute('data-landing-page')
+                    allZoneLinks.forEach(linkToReset => {
+                        linkToReset.classList.remove('current-zone')
+                    })
+                    zoneLink.classList.add('current-zone')
+                    console.log('targetZone: ', targetZone)
+                    zone.classList.add('hidden')
+                    console.log('zoneLink: REMOVE .current-zone class from all before adding to clicked e.target', zoneLink)
+                    console.log(e.target.getAttribute('data-landing-page'))
+                    if (zoneLinkData === zoneName) {
+                        let currentZone = zoneName
+                        console.log('zoneLink: ', zoneLink)
+                        console.log('zoneName: ', zoneLink)
+                        zone.classList.remove('hidden')
+                        zoneLink.classList.add('current-zone')
+
+                        zone.classList.remove('hidden')
+                        allPageRoutes.forEach(zoneRoute => {
+                            const routeName = zoneRoute.getAttribute('data-page-route')
+                            console.log('routeName: ',routeName)
+                            zoneRoute.addEventListener('click', e => {
+                                const targetPage = e.target.getAttribute('data-page-route')
+                                console.log(targetPage)
+                                zonePage.classList.add('hidden')
+                                if (zonePageName === targetPage) {
+                                    console.log('zonePage: ', zonePage)
+                                    console.log('zonePageName: ', zonePageName)
+                                    console.log('targetPage: ', targetPage)
+                                    zonePage.classList.remove('hidden')
+
+                                }
+
+                            })
+                        })
+                    }
+                })
+
+            })
+        })
+
+    })
+
+</script>
 
 </body>
 </html>

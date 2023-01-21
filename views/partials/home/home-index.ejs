@@ -1,0 +1,23 @@
+
+<div class="zone hidden" data-zone-name="home">
+
+    <div class="page-routes">
+        <button data-page-route="landing" id="landingPage">Home</button>
+        <button data-page-route="about" id="aboutPage">About</button>
+    </div>
+
+
+
+    <div class="page-container" data-page-name="landing">
+
+        <h1>LANDING PAGE</h1>
+    </div>
+
+    <%- include('./about'), {pageName: 'about' } %>
+
+    <div class="page-container hidden" data-page-zone="home" data-page-name="about">
+
+        <h1>ABOUT PAGE</h1>
+    </div>
+
+</div>
