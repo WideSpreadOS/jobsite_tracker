@@ -1,0 +1,385 @@
+
+
+
+<div class="page-container hidden" data-page-name="new">
+
+
+
+
+<header>
+    <h1>Add New Job</h1>
+</header>
+
+<main>
+    <div class="job-data">
+        <div class="data-header">
+            <h4>Jobsite Information</h4>
+        </div>
+        <div class="data-item">
+            <select name="property_type" id="propertyType">
+                <option selected disabled hidden>Property Type</option>
+                <div class="options-list">
+                    <option value="residential">Residential</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="other">Other</option>
+                </div>
+            </select>
+        </div>
+
+        <div class="data-item">
+            <input type="text" name="jobsite.address.line_1" id="jobAddressLine1" placeholder="Street Line 1">
+        </div>
+        <div class="data-item">
+            <input type="text" name="jobsite.address.line_2" id="jobAddressLine2" placeholder="Street Line 2">
+        </div>
+        <div class="data-item">
+            <input type="text" name="jobsite.address.city" id="jobCity" placeholder="City">
+        </div>
+        <div class="data-row">
+            <div class="data-item">
+                <input type="text" name="jobsite.address.state" id="jobState" placeholder="State (2 Letters)">
+            </div>
+            <div class="data-item">
+                <input type="text" name="jobsite.address.zip" id="jobZip" placeholder="Zip">
+            </div>
+        </div>
+        <div class="data-item">
+            <input type="tel" name="jobsite.contact.phone" id="jobPhone" placeholder="Phone">
+        </div>
+        <div class="data-item">
+            <input type="email" name="jobsite.contact.email" id="jobEmail" placeholder="Email">
+        </div>
+
+        <div class="data-row">
+            <div class="data-item vert-stack">
+                <span class="data-input-label">Start Date</span>
+                <input type="date" name="jobsite.timeline.start" id="startDate" placeholder="Date Started">
+            </div>
+            <div class="data-item vert-stack">
+                <span class="data-input-label">Finish Date</span>
+                <input type="date" name="jobsite.timeline.finish" id="finishDate" placeholder="Date Finished">
+            </div>
+        </div>
+
+        <div class="data-header">
+            <h6>Permits</h6>
+        </div>
+        <div class="permits-list">
+            <div class="permit-item"
+                style="text-align: center; border-bottom: solid 1px orangered; margin-bottom: 10px;">
+                <span class="permit-code" data-permit-code="12345">Code</span>
+                <span class="permit-name" data-permit-name="0">Permit Name</span>
+                <span class="permit-status" data-permit-status="0">Unsubmitted</span>
+            </div>
+            <div class="permit-item">
+                <span class="permit-code" data-permit-code="12345">#12345</span>
+                <span class="permit-name" data-permit-name="0">City Water Hookup</span>
+                <span class="permit-status" data-permit-status="0">Unsubmitted</span>
+            </div>
+            <div class="permit-item">
+                <span class="permit-code" data-permit-code="12345">#23451</span>
+                <span class="permit-name" data-permit-name="0">City Gas Hookup</span>
+                <span class="permit-status" data-permit-status="0">Approved</span>
+            </div>
+            <div class="permit-item">
+                <span class="permit-code" data-permit-code="12345">#34512</span>
+                <span class="permit-name" data-permit-name="0">City Electrical Hookup</span>
+                <span class="permit-status" data-permit-status="0">Pending</span>
+            </div>
+        </div>
+        <div class="add-form">
+            <form id="addPermit" action="" method="post">
+                <div class="data-item"><input type="text" name="jobsite_permit_code" placeholder="Permit Code"></div>
+                <div class="data-item"><input type="text" name="jobsite_permit_name" placeholder="Permit Name"></div>
+                <div class="dev-note">
+                    <p>Create a Permit object before saving into DB, jobsite.permits: [ {permit_code: String,
+                        permit_name: String, permit_status: { type: Number, default: 0 }, {Permit}, {Permit} ] (status
+                        scale: 0 - 5. 0 = Not Submitted; 1 = Pending; 2 = Action Required; 3 = Approved; 4 = Approved
+                        with Conditions; 5 = Unapproved</p>
+                </div>
+                <div class="data-item">
+                    <button>Add Permit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="client-data">
+        <div class="data-header">
+            <h4>Client Information</h4>
+        </div>
+        <div class="data-item">
+            <input type="text" name="client.name.first" id="clientFirstName" placeholder="First Name">
+        </div>
+        <div class="data-item">
+            <input type="text" name="client.name.last" id="clientLastName" placeholder="Last Name">
+        </div>
+        <div class="data-item">
+            <input type="text" name="client.address.line_1" id="clientAddressLine1" placeholder="Street Line 1">
+        </div>
+        <div class="data-item">
+            <input type="text" name="client.address.line_2" id="clientAddressLine2" placeholder="Street Line 2">
+        </div>
+        <div class="data-item">
+            <input type="text" name="client.address.city" id="clientCity" placeholder="City">
+        </div>
+        <div class="data-row">
+            <div class="data-item">
+                <input type="text" name="client.address.state" id="clientState" placeholder="State (2 Letters)">
+            </div>
+            <div class="data-item">
+                <input type="text" name="client.address.zip" id="clientZip" placeholder="Zip">
+            </div>
+        </div>
+        <div class="data-item">
+            <input type="tel" name="client.contact.phone" id="clientPhone" placeholder="Phone">
+        </div>
+        <div class="data-item">
+            <input type="email" name="client.contact.email" id="clientEmail" placeholder="Email">
+        </div>
+    </div>
+
+
+
+    <div class="expense-data">
+        <div class="data-header">
+            <h4>Expenses</h4>
+        </div>
+        <div class="data-header">
+            <h6>Add New Expense</h6>
+        </div>
+        <div class="add-form">
+            <form id="addNewExpenseForm" action="#" method="post">
+                <div class="data-item"><input type="number" placeholder="Quantity"></div>
+                <div class="data-item"><input type="number" placeholder="Price Each"></div>
+                <div class="data-item"><button type="submit">Add Expense</button></div>
+            </form>
+        </div>
+        <div class="data-header">
+            <h6>All Current Expenses</h6>
+        </div>
+        <div class="expense-item">
+            <div class="item-number">
+                <span>1</span>
+            </div>
+            <div class="item-options">
+                <span class="item-options-open"><img src="/images/menu.png" alt="Menu Icon"></span>
+                <div class="item-options-list hidden">
+                    <div class="options-list">
+                        <span>Edit</span>
+                        <span>Share</span>
+                        <span>X</span>
+                    </div>
+                </div>
+            </div>
+            <div class="item-name">
+                <p>Item 1</p>
+            </div>
+            <div class="item-description">
+                <p>Item description goes here...</p>
+            </div>
+            <div class="item-details">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Qty</th>
+                            <th>Price/Ea</th>
+                            <th>Total</th>
+                            <th>Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="item-quantity">6</div>
+                            </td>
+                            <td>
+                                <div class="item-price-each">$50</div>
+                            </td>
+                            <td>
+                                <div class="item-price-total">$300</div>
+                            </td>
+                            <td>
+                                <div class="item-paid">$300</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="expense-item">
+            <div class="item-number">
+                <span>2</span>
+            </div>
+            <div class="item-options">
+                <span class="item-options-open"><img src="/images/menu.png" alt="Menu Icon"></span>
+                <div class="item-options-list hidden">
+                    <div class="options-list">
+                        <span>Edit</span>
+                        <span>Share</span>
+                        <span>X</span>
+                    </div>
+                </div>
+            </div>
+            <div class="item-name">
+                <p>Item 2</p>
+            </div>
+            <div class="item-description">
+                <p>Item description goes here...</p>
+            </div>
+            <div class="item-details">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Qty</th>
+                            <th>Price/Ea</th>
+                            <th>Total</th>
+                            <th>Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="item-quantity">52</div>
+                            </td>
+                            <td>
+                                <div class="item-price-each">$150</div>
+                            </td>
+                            <td>
+                                <div class="item-price-total">$7800</div>
+                            </td>
+                            <td>
+                                <div class="item-paid">$5300</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="expense-item">
+            <div class="item-number">
+                <span>3</span>
+            </div>
+            <div class="item-options">
+                <span class="item-options-open"><img src="/images/menu.png" alt="Menu Icon"></span>
+                <div class="item-options-list hidden">
+                    <div class="options-list">
+                        <span>Edit</span>
+                        <span>Share</span>
+                        <span>X</span>
+                    </div>
+                </div>
+            </div>
+            <div class="item-name">
+                <p>Item 3</p>
+            </div>
+            <div class="item-description">
+                <p>Item description goes here...</p>
+            </div>
+            <div class="item-details">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Qty</th>
+                            <th>Price/Ea</th>
+                            <th>Total</th>
+                            <th>Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="item-quantity">1000</div>
+                            </td>
+                            <td>
+                                <div class="item-price-each">$2.50</div>
+                            </td>
+                            <td>
+                                <div class="item-price-total">$2500</div>
+                            </td>
+                            <td>
+                                <div class="item-paid">$0</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+</main>
+
+<div class="notes-container">
+    <div class="data-header">
+        <h4>Notes</h4>
+    </div>
+    <div class="item-note" data-item-ref="2">
+        <div class="item-ref">
+            <span>2</span>
+        </div>
+        <div class="item-ref-options">
+            <span class="item-ref-options-open">
+                <img src="/images/menu.png" alt="Menu Icon">
+            </span>
+            <div class="item-ref-options-list">
+                <div class="item-options-list hidden">
+                    <div class="options-list">
+                        <span>Edit</span>
+                        <span>Share</span>
+                        <span>X</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="note-body">
+            <p>This is where you can type in an extra long note to save space on your expenses list. You can add notes
+                to however many notes you need to any items.</p>
+        </div>
+        <div class="dev-note">
+            <p>This will all be done with forms that popup when a user clicks on certain buttons with dynamic item-data
+                injected to each note for referencing.</p>
+        </div>
+    </div>
+    <div class="item-note" data-item-ref="2">
+        <div class="item-ref">
+            <span>2</span>
+        </div>
+        <div class="item-ref-options">
+            <span class="item-ref-options-open">
+                <img src="/images/menu.png" alt="Menu Icon">
+            </span>
+            <div class="item-options-list hidden">
+                <div class="options-list">
+                    <span>Edit</span>
+                    <span>Share</span>
+                    <span>X</span>
+                </div>
+            </div>
+        </div>
+        <div class="note-body">
+            <p>The number to the top left corner of this text is the number of the items number in the expenses list.
+                You can find the item number in the same place as this item reference number on the item itself.</p>
+        </div>
+        <div class="dev-note">
+            <p>This will all be done with forms that popup when a user clicks on certain buttons with dynamic item-data
+                injected to each note for referencing.</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <ul>
+        <li>O'Connell Inc.</li>
+        <li><a href="tel:123456790">(123)456-7890</a></li>
+        <li><a href="tel:0987654321">(098)765-4321</a></li>
+        <li><a href="mailto:john@doe.com">john@doe.com</a></li>
+    </ul>
+</footer>
+
+</div>

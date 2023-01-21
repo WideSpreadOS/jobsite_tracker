@@ -1,0 +1,60 @@
+<style>
+    #mainMenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        height: 100px;
+        background-color: #222;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+    }
+
+    #mainSearch {
+        display: none;
+    }
+
+    .nav-bar {
+        width: 100%;
+    }
+    .nav-bar {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+    .nav-bar a {
+        color: orangered;
+        font-size: 2rem;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 10px;
+    }
+</style>
+
+
+<div id="mainMenu">
+    <div id="mainSearch">
+        <form action="/search" method="post">
+            <div class="single-input-action-container">
+                <input type="search" name="query" id="queryInput" placeholder="Search...">
+                <button type="submit">Go</button>
+            </div>
+        </form>
+    </div>
+    <div class="nav-bar">
+        <a href="/">Home</a>
+        <a href="/jobs">Jobs</a>
+        <a href="/clients">Clients</a>
+        <a href="/suppliers">Suppliers</a>
+        <a href="/maintenance">Maintenance</a>
+        <a href="/tools">Tools</a>
+        <a href="/resources">Resources</a>
+    </div>
+</div>

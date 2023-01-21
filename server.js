@@ -18,13 +18,19 @@ app.use(express.static('public'));
 // EJS
 app.set(expressLayouts)
 app.set('view engine', 'ejs');
+
+
 app.use(express.urlencoded({ extended: false }));
 
-
+const user = {
+    firstName: 'Tim',
+    lastName: 'Cook',
+}
 app.get('/', (req, res) => {
-    res.render('landing')
+    res.render('pages/index', {
+        user: user
+    })
 })
-
 app.get('/jobs', (req, res) => {
     res.render('jobs', {pageTitle: 'Jobs Home'})
 })
@@ -45,5 +51,5 @@ app.get('/resources', (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log('Server started on http://localhost:3000')
+    console.log(`Server started on http://localhost:${PORT}`)
 })
